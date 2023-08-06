@@ -10,11 +10,7 @@ class Todo(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     status = models.BooleanField()
-    
-    # Workout
-    # I will be doing 2 hours of workout for a week
-    # false
-    
+ 
     
     
 
