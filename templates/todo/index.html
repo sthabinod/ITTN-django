@@ -6,13 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>List of todo Jinja syntax</h1>
+    <h1>List of todo</h1>
+
+    <ul>
+        {% for obj in todo_list_all %}
+        <li> title- {{obj.title}} <br>
+            description- {{obj.description}}
+        </li>
+        
+        <br>
+    {% endfor %}
+       
+    </ul>
+
    
-    {% for todo in todo_list_data%}
-        {{todo.title}} 
-        {{todo.description}}
-        <br>
-        <br>
-    {%endfor%}
 </body>
 </html>

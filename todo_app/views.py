@@ -3,13 +3,15 @@ from .models import Todo
 
 def list_todo(request):
     # logic
-    # select * from todo_app_todo;
-    # ORM - object relational mapper
-    # list
     
-    todo_list = Todo.objects.all() 
-    print(todo_list)
+    # SQL query
+    # select * from todo where id=1;
+    
+    # ORM query
+    todo_list = Todo.objects.all()
+    
     data = {
-        'todo_list_data':todo_list
+        'todo_list_all':todo_list
     }
+   
     return render(request,"todo/index.html",data)    
