@@ -7,13 +7,21 @@
 </head>
 <body>
     <h1>List of todo</h1>
-
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
     <ul>
         {% for obj in todo_list_show %}
         <li> title- {{obj.title}} <br>
             description- {{obj.description}}
+            id {{obj.id}}
         </li>
-        
+        <br>
+        <button> <a href="{% url 'delete_todo' obj.id %}"> Delete </a> </button>
+
+        <br>
+        <br>
+        <br>
         <br>
     {% endfor %}
        

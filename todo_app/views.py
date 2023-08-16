@@ -25,6 +25,28 @@ def create_todo(request):
         print(data_title,data_description)
         
         # which table - Todo
-        Todo.objects.create(title=data_title,description=data_description)
+        Todo.objects.create(description=data_description,title=data_title)
         messages.info(request,f"{data_title} has been created...")
+        
+        
+        
+       
+        
+        
     return render(request,"todo/create_todo.html")
+
+
+def delete_todo_method(request,id):
+    # delete
+    # SQL query
+    # select * from todo where id =id;
+    # ORM query
+    my_object = Todo.objects.get(id=id)
+    my_object.delete()
+    messages.info(request,f"Data has been Deleted...")
+    todo_list = Todo.objects.all()
+    
+    data = {
+        'todo_list_show':todo_list
+    }
+    return render(request,"todo/index.html",data)
