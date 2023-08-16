@@ -9,7 +9,7 @@ class Todo(models.Model):
     # char = string
     title = models.CharField(max_length=100)
     description = models.TextField()
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
     
     # Workout
     # I will be doing 2 hours of workout for a week

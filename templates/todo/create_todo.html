@@ -7,13 +7,19 @@
 </head>
 <body>
     
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+
     <form action="{% url 'create_my_todo' %}" method="POST">
         {% csrf_token %}
         <label for="">Title</label>
-        <input type="text" name="my_title" placeholder="Enter title">
+        <input type="text" name="xasdfasdf" placeholder="Enter title">
 
         <label for="">Description</label>
-        <input type="text" name="my_description" placeholder="Enter Description">
+        <input type="text" name="y" placeholder="Enter Description">
+
+        
 
         <button type="submit">Add todo</button>
     </form>

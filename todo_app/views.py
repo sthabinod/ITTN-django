@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Todo 
+from django.contrib import messages
 
 def list_todo(request):
 
@@ -17,14 +18,13 @@ def list_todo(request):
 
 
 def create_todo(request):
-    
     if request.method=="POST":
         # data - title description
-        data_title = request.POST['my_title']
-        data_description = request.POST['my_description']
+        data_title = request.POST['xasdfasdf']
+        data_description = request.POST['y']
         print(data_title,data_description)
         
         # which table - Todo
         Todo.objects.create(title=data_title,description=data_description)
-    
+        messages.info(request,f"{data_title} has been created...")
     return render(request,"todo/create_todo.html")
