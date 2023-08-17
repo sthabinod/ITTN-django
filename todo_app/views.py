@@ -41,12 +41,13 @@ def delete_todo_method(request,id):
     # SQL query
     # select * from todo where id =id;
     # ORM query
-    my_object = Todo.objects.get(id=id)
-    my_object.delete()
-    messages.info(request,f"Data has been Deleted...")
-    todo_list = Todo.objects.all()
     
+    obj = Todo.objects.get(id=id) 
+    obj.delete()
+    messages.info(request,f"Todo has been deleted...")
+    todo_list = Todo.objects.all()
     data = {
         'todo_list_show':todo_list
     }
+    
     return render(request,"todo/index.html",data)
