@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <a href="{% url 'logout_user' %}"> Logout</a>
+
     <h1>List of todo</h1>
     {% for message in messages %}
         {{message}}

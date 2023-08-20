@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from .models import Todo 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+# login required
+@login_required
 def list_todo(request):
 
     # SQL query
@@ -16,7 +20,7 @@ def list_todo(request):
     
     return render(request,"todo/index.html",data)    
 
-
+@login_required
 def create_todo(request):
     if request.method=="POST":
         # data - title description
@@ -35,7 +39,7 @@ def create_todo(request):
         
     return render(request,"todo/create_todo.html")
 
-
+@login_required
 def delete_todo_method(request,id):
     # delete
     # SQL query
