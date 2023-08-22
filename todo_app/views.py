@@ -10,9 +10,9 @@ def list_todo(request):
 
     # SQL query
     #select * from table_name;
-    
+    my_user = request.user
     # ORM Query
-    todo_list = Todo.objects.all()
+    todo_list = Todo.objects.filter(user=my_user)
     
     data = {
         'todo_list_show':todo_list
@@ -26,10 +26,12 @@ def create_todo(request):
         # data - title description
         data_title = request.POST['xasdfasdf']
         data_description = request.POST['y']
+        front_image = request.FILES['my_image']
         print(data_title,data_description)
+        my_user = request.user
         
         # which table - Todo
-        Todo.objects.create(description=data_description,title=data_title)
+        Todo.objects.create(description=data_description,title=data_title,user=my_user,image=front_image)
         messages.info(request,f"{data_title} has been created...")
         
         

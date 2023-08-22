@@ -11,10 +11,13 @@
         {{message}}
     {% endfor %}
 
-    <form action="{% url 'create_my_todo' %}" method="POST">
+    <form action="{% url 'create_my_todo' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="">Title</label>
         <input type="text" name="xasdfasdf" placeholder="Enter title">
+
+        <label for="">Image</label>
+        <input type="file" name="my_image">
 
         <label for="">Description</label>
         <input type="text" name="y" placeholder="Enter Description">

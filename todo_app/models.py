@@ -10,6 +10,7 @@ class Todo(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     status = models.BooleanField(default=False)
+    image = models.ImageField(null=True,blank=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     
     # Workout
