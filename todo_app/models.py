@@ -11,7 +11,7 @@ class Todo(models.Model):
     description = models.TextField()
     status = models.BooleanField(default=False)
     image = models.ImageField(null=True,blank=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE) 
     
     # Workout
     # I will be doing 2 hours of workout for a week

@@ -5,20 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style>
+        .hello{
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
 
+    <img width=20 src="{% static 'images/lipstick.png' %}" alt=""/>
+
     <a href="{% url 'logout_user' %}"> Logout</a>
 
-    <h1>List of todo</h1>
+    <h1 class="hello">List of todo</h1>
     {% for message in messages %}
         {{message}}
     {% endfor %}
     <ul>
         {% for obj in todo_list_show %}
+        <li class="my_back"> 
+            <img src="{{obj.image.url}}" alt="">
+            <label style="color:brown;" for="">title</label>       
+            <label for="">
+                {{obj.title}} <br>
 
-        <img src="{% static 'images/lipstick.png' %}" />
-        <li> title- {{obj.title}} <br>
+
+            </label>
             description- {{obj.description}}
             ID = {{obj.id}}
         </li>
